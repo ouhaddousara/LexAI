@@ -1,0 +1,47 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                        String     @id @default(uuid())
+  email                     String?    @unique
+  created_at                DateTime   @default(now())
+  plan                      String     @default("free") // "free", "pro", "team"
+  contracts_used_this_month Int        @default(0)
+  contracts                 Contract[]
+}
+
+model Contract {
+  id             String    @id @default(uuid())
+  user_id        String?
+  created_at     DateTime  @default(now())
+  contract_type  String?
+  verdict        String?
+  overall_score  Int?
+  raw_text       String
+  analysis_json  String?
+
+  user           User?     @relation(fields: [user_id], references: [id])
+  clauses        Clause[]
+}
+
+model Clause {
+  id                String    @id @default(uuid())
+  contract_id       String
+  title             String
+  type              String
+  risk_level        Int?
+  plain_english     String?
+  is_red_flag       Boolean   @default(false)
+  negotiation_email String?
+
+  contract          Contract  @relation(fields: [contract_id], references: [id], onDelete: Cascade)
+}

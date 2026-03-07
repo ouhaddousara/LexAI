@@ -1,0 +1,61 @@
+﻿
+> lexai@0.1.0 build
+> next build
+
+Γû▓ Next.js 16.1.6 (Turbopack)
+- Environments: .env
+
+  Creating an optimized production build ...
+Γ£ô Compiled successfully in 5.1s
+  Running TypeScript ...
+node.exe : Failed to compile.
+At line:1 char:1
++ & "C:\Program Files\nodejs/node.exe" "C:\Program 
+Files\nodejs/node_mo ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Faile 
+   d to compile.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+./app/page.tsx:19:61
+Type error: Type '{ children: Element; variant: 
+"default"; size: "sm"; asChild: true; }' is not 
+assignable to type 'IntrinsicAttributes & 
+ButtonProps & RefAttributes<HTMLButtonElement>'.
+  Property 'asChild' does not exist on type 
+'IntrinsicAttributes & ButtonProps & 
+RefAttributes<HTMLButtonElement>'.
+
+[0m [90m 17 |[39m                         
+[33m<[39m[33mLink[39m 
+href[33m=[39m[32m"#pricing"[39m 
+className[33m=[39m[32m"text-sm font-medium 
+hover:text-brand transition-colors"[39m[33m>[39m
+[33mPricing[39m[33m<[39m[33m/[39m[33mLink[3
+9m[33m>[39m
+ [90m 18 |[39m                         
+[33m<[39m[33mLink[39m 
+href[33m=[39m[32m"/login"[39m 
+className[33m=[39m[32m"text-sm font-medium 
+hover:text-brand transition-colors"[39m[33m>[39m
+[33mLogin[39m[33m<[39m[33m/[39m[33mLink[39m
+[33m>[39m
+[31m[1m>[22m[39m[90m 19 |[39m                
+         [33m<[39m[33mButton[39m 
+variant[33m=[39m[32m"default"[39m 
+size[33m=[39m[32m"sm"[39m asChild[33m>[39m
+ [90m    |[39m                                   
+                          [31m[1m^[22m[39m
+ [90m 20 |[39m                             
+[33m<[39m[33mLink[39m href[33m=[39m[32m"/ana
+lyze"[39m[33m>[39m[33mAnalyze[39m 
+[33mMy[39m [33mContract[39m 
+ΓåÆ[33m<[39m[33m/[39m[33mLink[39m[33m>[39m
+ [90m 21 |[39m                         
+[33m<[39m[33m/[39m[33mButton[39m[33m>[39m
+ [90m 22 |[39m                     
+[33m<[39m[33m/[39m[33mdiv[39m[33m>[39m[0m
+Next.js build worker exited with code: 1 and 
+signal: null

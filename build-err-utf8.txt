@@ -1,0 +1,43 @@
+﻿
+> lexai@0.1.0 build
+> next build
+
+Γû▓ Next.js 16.1.6 (Turbopack)
+- Environments: .env
+
+  Creating an optimized production build ...
+Γ£ô Compiled successfully in 5.5s
+  Running TypeScript ...
+  Collecting page data using 7 workers ...
+  Generating static pages using 7 workers (0/6) ...
+  Generating static pages using 7 workers (1/6) 
+  Generating static pages using 7 workers (2/6) 
+node.exe : Error occurred prerendering page "/". 
+Read more: 
+https://nextjs.org/docs/messages/prerender-error
+At line:1 char:1
++ & "C:\Program Files\nodejs/node.exe" "C:\Program 
+Files\nodejs/node_mo ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotS    pecified: 
+(Error occurred ...p    rerender-error:String) [], 
+Rem    oteException
+    + FullyQualifiedErrorId : Nati    
+veCommandError
+ 
+Error: Event handlers cannot be passed to Client 
+Component props.
+  {id: ..., className: ..., placeholder: ..., 
+readOnly: ..., onClick: function onClick}
+                                                   
+                   ^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting 
+part of this to a Client Component.
+    at stringify (<anonymous>) {
+  digest: '1925654345'
+}
+Export encountered an error on /page: /, exiting 
+the build.
+Γ¿» Next.js build worker exited with code: 1 and 
+signal: null

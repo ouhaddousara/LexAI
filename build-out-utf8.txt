@@ -1,0 +1,333 @@
+﻿
+> lexai@0.1.0 build
+> next build
+
+Γû▓ Next.js 16.1.6 (Turbopack)
+- Environments: .env
+
+  Creating an optimized production build ...
+node.exe : 
+At line:1 char:1
++ & "C:\Program Files\nodejs/node.exe" "C:\Program 
+Files\nodejs/node_mo ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:Stri 
+   ng) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+> Build error occurred
+Error: Turbopack build failed with 5 errors:
+./app/analyze/page.tsx:4:1
+Module not found: Can't resolve 
+'@/components/analyze/ContractInput'
+[0m [90m 2 |[39m
+ [90m 3 |[39m [36mimport[39m { useState } 
+[36mfrom[39m [32m"react"[39m
+[31m[1m>[22m[39m[90m 4 |[39m 
+[36mimport[39m { [33mContractInput[39m } 
+[36mfrom[39m 
+[32m"@/components/analyze/ContractInput"[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m
+[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m
+[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[
+39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1
+m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39
+m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^
+[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[
+22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[3
+1m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22
+m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m
+[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m
+[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[
+1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[3
+9m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m
+^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^
+[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[
+31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[2
+2m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31
+m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m
+[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m
+[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[
+39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1
+m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39
+m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^
+[22m[39m
+ [90m 5 |[39m [36mimport[39m { 
+[33mProcessingState[39m } [36mfrom[39m 
+[32m"@/components/analyze/ProcessingState"[39m
+ [90m 6 |[39m [36mimport[39m { 
+[33mResultsDashboard[39m } [36mfrom[39m 
+[32m"@/components/analyze/ResultsDashboard"[39m
+ [90m 7 |[39m [36mimport[39m [33mLink[39m 
+[36mfrom[39m [32m"next/link"[39m[0m
+
+Import map: aliased to relative 
+'./src/components/analyze/ContractInput' inside of 
+[project]/
+
+
+Import traces:
+  Client Component Browser:
+    ./app/analyze/page.tsx [Client Component 
+Browser]
+    ./app/analyze/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/analyze/page.tsx [Client Component SSR]
+    ./app/analyze/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+./app/analyze/page.tsx:5:1
+Module not found: Can't resolve 
+'@/components/analyze/ProcessingState'
+[0m [90m 3 |[39m [36mimport[39m { useState } 
+[36mfrom[39m [32m"react"[39m
+ [90m 4 |[39m [36mimport[39m { 
+[33mContractInput[39m } [36mfrom[39m 
+[32m"@/components/analyze/ContractInput"[39m
+[31m[1m>[22m[39m[90m 5 |[39m 
+[36mimport[39m { [33mProcessingState[39m } 
+[36mfrom[39m 
+[32m"@/components/analyze/ProcessingState"[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m
+[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m
+[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[
+39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1
+m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39
+m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^
+[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[
+22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[3
+1m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22
+m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m
+[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m
+[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[
+1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[3
+9m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m
+^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^
+[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[
+31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[2
+2m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31
+m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m
+[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m
+[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[
+39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1
+m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39
+m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^
+[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 6 |[39m [36mimport[39m { 
+[33mResultsDashboard[39m } [36mfrom[39m 
+[32m"@/components/analyze/ResultsDashboard"[39m
+ [90m 7 |[39m [36mimport[39m [33mLink[39m 
+[36mfrom[39m [32m"next/link"[39m
+ [90m 8 |[39m [36mimport[39m { 
+[33mShield[39m } [36mfrom[39m 
+[32m"lucide-react"[39m[0m
+
+Import map: aliased to relative 
+'./src/components/analyze/ProcessingState' inside 
+of [project]/
+
+
+Import traces:
+  Client Component Browser:
+    ./app/analyze/page.tsx [Client Component 
+Browser]
+    ./app/analyze/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/analyze/page.tsx [Client Component SSR]
+    ./app/analyze/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+./app/analyze/page.tsx:6:1
+Module not found: Can't resolve 
+'@/components/analyze/ResultsDashboard'
+[0m [90m 4 |[39m [36mimport[39m { 
+[33mContractInput[39m } [36mfrom[39m 
+[32m"@/components/analyze/ContractInput"[39m
+ [90m 5 |[39m [36mimport[39m { 
+[33mProcessingState[39m } [36mfrom[39m 
+[32m"@/components/analyze/ProcessingState"[39m
+[31m[1m>[22m[39m[90m 6 |[39m 
+[36mimport[39m { [33mResultsDashboard[39m } 
+[36mfrom[39m 
+[32m"@/components/analyze/ResultsDashboard"[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m
+[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m
+[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[
+39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1
+m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39
+m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^
+[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[
+22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[3
+1m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22
+m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m
+[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m
+[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[
+1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[3
+9m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m
+^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^
+[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[
+31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[2
+2m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31
+m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m
+[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m
+[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[
+39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1
+m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39
+m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^
+[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[
+22m[39m[31m[1m^[22m[39m
+ [90m 7 |[39m [36mimport[39m [33mLink[39m 
+[36mfrom[39m [32m"next/link"[39m
+ [90m 8 |[39m [36mimport[39m { 
+[33mShield[39m } [36mfrom[39m 
+[32m"lucide-react"[39m
+ [90m 9 |[39m [36mimport[39m { 
+[33mAnalysisResponse[39m } [36mfrom[39m 
+[32m"@/types"[39m[0m
+
+Import map: aliased to relative 
+'./src/components/analyze/ResultsDashboard' inside 
+of [project]/
+
+
+Import traces:
+  Client Component Browser:
+    ./app/analyze/page.tsx [Client Component 
+Browser]
+    ./app/analyze/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/analyze/page.tsx [Client Component SSR]
+    ./app/analyze/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+./app/page.tsx:3:1
+Module not found: Can't resolve 
+'@/components/ui/Button'
+[0m [90m 1 |[39m [36mimport[39m 
+[33mLink[39m [36mfrom[39m [32m"next/link"[39m
+ [90m 2 |[39m [36mimport[39m { 
+[33mShield[39m[33m,[39m 
+[33mZap[39m[33m,[39m 
+[33mFileText[39m[33m,[39m 
+[33mCheckCircle2[39m } [36mfrom[39m 
+[32m"lucide-react"[39m
+[31m[1m>[22m[39m[90m 3 |[39m 
+[36mimport[39m { [33mButton[39m } 
+[36mfrom[39m [32m"@/components/ui/Button"[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m
+[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m
+[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[
+39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1
+m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39
+m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^
+[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[
+22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[3
+1m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22
+m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m
+[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m
+[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[
+1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[3
+9m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m
+^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^
+[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[
+31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 4 |[39m [36mimport[39m { 
+[33mCard[39m[33m,[39m [33mCardContent[39m } 
+[36mfrom[39m [32m"@/components/ui/Card"[39m
+ [90m 5 |[39m
+ [90m 6 |[39m [36mexport[39m [36mdefault[39m 
+[36mfunction[39m [33mLandingPage[39m() {[0m
+
+Import map: aliased to relative 
+'./src/components/ui/Button' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+./app/page.tsx:4:1
+Module not found: Can't resolve 
+'@/components/ui/Card'
+[0m [90m 2 |[39m [36mimport[39m { 
+[33mShield[39m[33m,[39m 
+[33mZap[39m[33m,[39m 
+[33mFileText[39m[33m,[39m 
+[33mCheckCircle2[39m } [36mfrom[39m 
+[32m"lucide-react"[39m
+ [90m 3 |[39m [36mimport[39m { 
+[33mButton[39m } [36mfrom[39m 
+[32m"@/components/ui/Button"[39m
+[31m[1m>[22m[39m[90m 4 |[39m 
+[36mimport[39m { [33mCard[39m[33m,[39m 
+[33mCardContent[39m } [36mfrom[39m 
+[32m"@/components/ui/Card"[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m
+[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m
+[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[
+39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1
+m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39
+m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^
+[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[
+22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[3
+1m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22
+m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m
+[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m
+[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[
+1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[3
+9m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m
+^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^
+[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[
+31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[2
+2m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31
+m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m
+[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m
+[1m^[22m[39m
+ [90m 5 |[39m
+ [90m 6 |[39m [36mexport[39m [36mdefault[39m 
+[36mfunction[39m [33mLandingPage[39m() {
+ [90m 7 |[39m     [36mreturn[39m ([0m
+
+Import map: aliased to relative 
+'./src/components/ui/Card' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+    at <unknown> (./app/analyze/page.tsx:4:1)
+    at <unknown> 
+(https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> (./app/analyze/page.tsx:5:1)
+    at <unknown> 
+(https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> (./app/analyze/page.tsx:6:1)
+    at <unknown> 
+(https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> (./app/page.tsx:3:1)
+    at <unknown> 
+(https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> (./app/page.tsx:4:1)
+    at <unknown> 
+(https://nextjs.org/docs/messages/module-not-found)

@@ -1,0 +1,65 @@
+﻿
+> lexai@0.1.0 lint
+> eslint
+
+
+C:\Users\User\lexai\app\analyze\page.tsx
+  12:58  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\User\lexai\app\api\analyze\email\route.ts
+  8:41  warning  'risk_reason' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\User\lexai\app\page.tsx
+  29:34  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  85:65  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\User\lexai\components\analyze\ClauseCard.tsx
+  11:13  error  Unexpected any. Specify a different type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   @typescript-eslint/no-explicit-any
+  58:26  error  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+C:\Users\User\lexai\components\analyze\ClauseCard.tsx:58:26
+  56 |                     <div className="flex flex-col items-end gap-2">
+  57 |                         <Badge variant={getBadgeVariant(clause.risk_label)}>{clause.risk_label.toUpperCase()}</Badge>
+> 58 |                         <SkullRating level={clause.risk_level} />
+     |                          ^^^^^^^^^^^ This component is created during render
+  59 |                     </div>
+  60 |                 </div>
+  61 |             </CardHeader>
+
+C:\Users\User\lexai\components\analyze\ClauseCard.tsx:19:25
+  17 |
+  18 |     // Determine skull count based on risk level
+> 19 |     const SkullRating = ({ level }: { level: number }) => {
+     |                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 20 |         return (
+     | ^^^^^^^^^^^^^^^^
+> 21 |             <div className="flex gap-1" title={`Risk Level: ${level}/5`}>
+     ΓÇª
+     | ^^^^^^^^^^^^^^^^
+> 28 |         )
+     | ^^^^^^^^^^^^^^^^
+> 29 |     }
+     | ^^^^^^ The component is created during render here
+  30 |
+  31 |     const getBadgeVariant = (label: string) => {
+  32 |         const l = label.toLowerCase()  react-hooks/static-components
+
+C:\Users\User\lexai\components\analyze\ContractInput.tsx
+  18:80  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\User\lexai\components\analyze\NegotiationEmail.tsx
+   8:13  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  12:48  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\User\lexai\components\analyze\ResultsDashboard.tsx
+  11:11  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  41:62  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  54:57  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\User\lexai\lib\utils.ts
+  1:13  warning  'React' is defined but never used  @typescript-eslint/no-unused-vars
+
+Γ£û 13 problems (11 errors, 2 warnings)
+

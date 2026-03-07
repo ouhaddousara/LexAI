@@ -1,0 +1,166 @@
+﻿Γû▓ Next.js 16.1.6 (Turbopack)
+- Environments: .env
+
+  Creating an optimized production build ...
+node.exe : Error: Can't resolve 
+'tailwindcss-animate' in 
+'C:\Users\User\lexai\app'
+At line:1 char:1
++ & "C:\Program 
+Files\nodejs/node.exe" "C:\Program 
+Files\nodejs/node_mo ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~
+    + CategoryInfo          : NotS 
+   pecified: (Error: Can't re...U  
+  ser\lexai\app':String) [], Rem   
+ oteException
+    + FullyQualifiedErrorId : Nati 
+   veCommandError
+ 
+    [2m[at finishWithoutResolve (C
+:\Users\User\lexai\node_modules\enh
+anced-resolve\lib\Resolver.js:586:1
+8)][0m
+    [2m[at C:\Users\User\lexai\nod
+e_modules\enhanced-resolve\lib\Reso
+lver.js:678:14][0m
+    [2m[at C:\Users\User\lexai\nod
+e_modules\enhanced-resolve\lib\Reso
+lver.js:739:5][0m
+    [2m[at eval (eval at create (C
+:\Users\User\lexai\node_modules\tap
+able\lib\HookCodeFactory.js:31:10),
+ <anonymous>:15:1)][0m
+    [2m[at C:\Users\User\lexai\nod
+e_modules\enhanced-resolve\lib\Reso
+lver.js:739:5][0m
+    [2m[at eval (eval at create (C
+:\Users\User\lexai\node_modules\tap
+able\lib\HookCodeFactory.js:31:10),
+ <anonymous>:27:1)][0m
+    [2m[at C:\Users\User\lexai\nod
+e_modules\enhanced-resolve\lib\Desc
+riptionFilePlugin.js:89:43][0m
+    [2m[at C:\Users\User\lexai\nod
+e_modules\enhanced-resolve\lib\Reso
+lver.js:739:5][0m
+    [2m[at eval (eval at create (C
+:\Users\User\lexai\node_modules\tap
+able\lib\HookCodeFactory.js:31:10),
+ <anonymous>:15:1)][0m
+    [2m[at C:\Users\User\lexai\nod
+e_modules\enhanced-resolve\lib\Reso
+lver.js:739:5][0m {
+  details: "resolve 
+'tailwindcss-animate' in 
+'C:\\Users\\User\\lexai\\app'\n" +
+    '  Parsed request is a 
+module\n' +
+    '  using description file: C:\\
+Users\\User\\lexai\\package.json 
+(relative path: ./app)\n' +
+    '    resolve as module\n' +
+    "      C:\\Users\\User\\lexai\\
+app\\node_modules doesn't exist or 
+is not a directory\n" +
+    '      looking for modules in C
+:\\Users\\User\\lexai\\node_modules
+\n' +
+    '        single file module\n' 
++
+    '          using description 
+file: C:\\Users\\User\\lexai\\packa
+ge.json (relative path: ./node_modu
+les/tailwindcss-animate)\n' +
+    '            no extension\n' +
+    "              C:\\Users\\User\
+\lexai\\node_modules\\tailwindcss-a
+nimate doesn't exist\n" +
+    '            .js\n' +
+    "              C:\\Users\\User\
+\lexai\\node_modules\\tailwindcss-a
+nimate.js doesn't exist\n" +
+    '            .json\n' +
+    "              C:\\Users\\User\
+\lexai\\node_modules\\tailwindcss-a
+nimate.json doesn't exist\n" +
+    '            .node\n' +
+    "              C:\\Users\\User\
+\lexai\\node_modules\\tailwindcss-a
+nimate.node doesn't exist\n" +
+    '            .ts\n' +
+    "              C:\\Users\\User\
+\lexai\\node_modules\\tailwindcss-a
+nimate.ts doesn't exist\n" +
+    "        C:\\Users\\User\\lexai
+\\node_modules\\tailwindcss-animate
+ doesn't exist\n" +
+    "      
+C:\\Users\\User\\node_modules 
+doesn't exist or is not a 
+directory\n" +
+    "      C:\\Users\\node_modules 
+doesn't exist or is not a 
+directory\n" +
+    "      C:\\node_modules 
+doesn't exist or is not a 
+directory"
+}
+
+> Build error occurred
+Error: Turbopack build failed with 
+1 errors:
+./app/globals.css
+Error evaluating Node.js code
+CssSyntaxError: tailwindcss: C:\Use
+rs\User\lexai\app\globals.css:1:1: 
+Can't resolve 
+'tailwindcss-animate' in 
+'C:\Users\User\lexai\app'
+    at Input.error (node_modules/po
+stcss/lib/input.js:135:16) [C:\User
+s\User\lexai\.next\build\chunks\nod
+e_modules_fe693df6._.js:4651:22]
+    at Root.error (node_modules/pos
+tcss/lib/node.js:146:32) [C:\Users\
+User\lexai\.next\build\chunks\node_
+modules_fe693df6._.js:928:38]
+    [at Object.Once (C:\Users\User\
+lexai\node_modules\@tailwindcss\pos
+tcss\dist\index.js:10:6913)]
+    at async LazyResult.runAsync (n
+ode_modules/postcss/lib/lazy-result
+.js:293:11) [C:\Users\User\lexai\.n
+ext\build\chunks\node_modules_fe693
+df6._.js:6214:21]
+    at async transform (turbopack:/
+//[turbopack-node]/transforms/postc
+ss.ts:70:34) [C:\Users\User\lexai\.
+next\build\chunks\[root-of-the-serv
+er]__51225daf._.js:146:36]
+    at async run (turbopack:///[tur
+bopack-node]/ipc/evaluate.ts:92:23)
+ [C:\Users\User\lexai\.next\build\c
+hunks\[root-of-the-server]__974941e
+d._.js:443:31]
+
+Import trace:
+  Client Component Browser:
+    ./app/globals.css [Client 
+Component Browser]
+    ./app/layout.tsx [Server 
+Component]
+
+
+    at async transform (turbopack:/
+//[turbopack-node]/transforms/postc
+ss.ts:70:34) [C:\Users\User\lexai\.
+next\build\chunks\[root-of-the-serv
+er]__51225daf._.js:146:36])
+    at async run (turbopack:///[tur
+bopack-node]/ipc/evaluate.ts:92:23)
+ [C:\Users\User\lexai\.next\build\c
+hunks\[root-of-the-server]__974941e
+d._.js:443:31])
