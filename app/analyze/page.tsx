@@ -6,6 +6,7 @@ import { ProcessingState } from "@/components/analyze/ProcessingState"
 import { ResultsDashboard } from "@/components/analyze/ResultsDashboard"
 import Link from "next/link"
 import { Shield } from "lucide-react"
+import Image from "next/image"
 import { AnalysisResponse } from "@/types"
 
 export default function AnalyzePage() {
@@ -37,9 +38,8 @@ export default function AnalyzePage() {
         <div className="min-h-screen flex flex-col bg-background">
             <header className="border-b border-border bg-background/80 backdrop-blur-md z-50">
                 <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-                    <Link href="/" className="text-xl font-bold flex items-center gap-2">
-                        <Shield className="w-6 h-6 text-brand" />
-                        <span>LexAI</span>
+                    <Link href="/" className="flex items-center gap-2 shrink-0">
+                        <Image src="/lexai-logo.svg" alt="LexAI" width={120} height={30} className="h-7 w-auto" priority />
                     </Link>
                 </div>
             </header>

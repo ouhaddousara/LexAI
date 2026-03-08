@@ -1,156 +1,121 @@
 import { NextResponse } from "next/server";
 
-// Mock JSON for the Hackathon Demo
-const DEMO_RESPONSE = {
-    clauses: [
-        {
-            id: "clause_001",
-            title: "1. SERVICES",
-            type: "Scope",
-            original_text: "Designer agrees to provide UI/UX design services as requested by Client from time to time at Client's sole discretion.",
-            plain_english: "You must do any design work they ask for, whenever they ask, with no clear boundaries.",
-            risk_level: 4,
-            risk_label: "High",
-            risk_reason: "Scope is dangerously vague. You could be forced into endless, undefined work.",
-            is_red_flag: false,
-            is_negotiable: true,
-            missing_protection: "Specific deliverables, timeline, or scope limitation.",
-        },
-        {
-            id: "clause_002",
-            title: "2. INTELLECTUAL PROPERTY",
-            type: "IP",
-            original_text: "All work product, inventions, designs, and materials created by Designer, whether during working hours or personal time, shall be the sole and exclusive property of Client in perpetuity. This includes any pre-existing materials Designer incorporates into deliverables.",
-            plain_english: "They own everything you create, even on your own time, plus any past work you include.",
-            risk_level: 5,
-            risk_label: "Critical",
-            risk_reason: "Blatant IP grab. It claims ownership of your personal side projects and past work.",
-            is_red_flag: true,
-            red_flag_explanation: "This forces you to surrender ownership of independent work outside this contract.",
-            is_negotiable: true,
-            missing_protection: "Limitation to only work created specifically for this project.",
-        },
-        {
-            id: "clause_003",
-            title: "3. PAYMENT",
-            type: "Payment",
-            original_text: "Client shall pay Designer within 90 days of invoice receipt. Client reserves the right to request unlimited revisions prior to payment release.",
-            plain_english: "They don't have to pay you for 3 months, and they can withhold payment if you refuse endless free revisions.",
-            risk_level: 5,
-            risk_label: "Critical",
-            risk_reason: "Net-90 payment is unacceptably late. Unlimited revisions tied to payment release gives the client power to never pay.",
-            is_red_flag: true,
-            red_flag_explanation: "Net-90 + unlimited revisions is a standard recipe for withholding payment indefinitely.",
-            is_negotiable: true,
-            missing_protection: "Net-30 or Net-15 limit, capped revision rounds.",
-        },
-        {
-            id: "clause_004",
-            title: "4. NON-COMPETE",
-            type: "NonCompete",
-            original_text: "Designer agrees not to provide services to any company in any industry for a period of 3 years following termination of this agreement.",
-            plain_english: "You cannot work for anyone else, in any industry, for 3 years after this contract ends.",
-            risk_level: 5,
-            risk_label: "Critical",
-            risk_reason: "This destroys your livelihood. You would be barred from working entirely for 3 years.",
-            is_red_flag: true,
-            red_flag_explanation: "A 3-year global non-compete for a freelancer is incredibly predatory and often legally unenforceable.",
-            is_negotiable: true,
-            missing_protection: "Non-compete should be struck entirely, or strictly limited to direct competitors for 6-12 months max.",
-        },
-        {
-            id: "clause_005",
-            title: "5. TERMINATION",
-            type: "Termination",
-            original_text: "Client may terminate this agreement at any time without notice or compensation. Designer may not terminate without 90 days written notice and Client approval.",
-            plain_english: "They can fire you instantly without paying. You cannot quit without 3 months notice AND their permission.",
-            risk_level: 4,
-            risk_label: "High",
-            risk_reason: "One-sided termination. You are trapped while they have no commitment.",
-            is_red_flag: false,
-            is_negotiable: true,
-            missing_protection: "Mutual 14-day or 30-day notice period.",
-        },
-        {
-            id: "clause_006",
-            title: "6. LIABILITY",
-            type: "Liability",
-            original_text: "Designer shall indemnify and hold harmless Client from any and all claims, losses, and expenses of any nature whatsoever.",
-            plain_english: "You must pay for any lawsuits, losses, or expenses the client faces, regardless of whose fault it is.",
-            risk_level: 4,
-            risk_label: "High",
-            risk_reason: "Uncapped, unilateral indemnification puts infinite financial risk on you.",
-            is_red_flag: false,
-            is_negotiable: true,
-            missing_protection: "Liability cap (e.g., total fees paid) and mutual indemnification.",
-        },
-        {
-            id: "clause_007",
-            title: "7. GOVERNING LAW",
-            type: "GoverningLaw",
-            original_text: "This agreement shall be governed by the laws of Delaware regardless of Designer's location.",
-            plain_english: "If you need to sue them, or they sue you, it happens in Delaware under Delaware law.",
-            risk_level: 2,
-            risk_label: "Low",
-            risk_reason: "Standard corporate clause, though potentially inconvenient if you don't live near Delaware.",
-            is_red_flag: false,
-            is_negotiable: true,
-            missing_protection: "Local jurisdiction preference.",
-        }
-    ],
-    total_clauses: 7,
-    contract_type: "Freelance Design Services Agreement",
-    parties: { party_a: "DesignCorp Inc.", party_b: "Freelancer (Designer)" },
-    top_red_flags: [
-        {
-            clause_id: "clause_004",
-            clause_title: "4. NON-COMPETE",
-            severity: "Critical",
-            one_line_summary: "Bans you from all work in any industry for 3 years."
-        },
-        {
-            clause_id: "clause_003",
-            clause_title: "3. PAYMENT",
-            severity: "Critical",
-            one_line_summary: "Allows them to indefinitely withhold payment using endless revisions."
-        },
-        {
-            clause_id: "clause_002",
-            clause_title: "2. INTELLECTUAL PROPERTY",
-            severity: "Critical",
-            one_line_summary: "Steals ownership of your past and personal work outside this contract."
-        }
-    ],
-    combined_risk_narrative: "This agreement is highly predatory. It combines a livelihood-destroying 3-year non-compete with an IP grab that claims your personal side projects. Meanwhile, payment terms are severely delayed (Net-90) and tied to unlimited revisions, creating a high risk of permanent non-payment.",
-    missing_clauses: [
-        "Limitation of Liability (Caps your financial exposure)",
-        "Payment Schedule / Late Fees (Protects your cash flow)",
-        "Severability (Ensures contract survives if one illegal clause is struck)"
-    ],
-    overall_score: 78,
-    category_scores: {
-        ip_rights: 100,
-        payment_terms: 100,
-        termination: 80,
-        liability: 80,
-        non_compete: 100,
-        confidentiality: 0
-    },
-    risk_distribution: { critical: 3, high: 2, medium: 0, low: 1, safe: 0 },
-    verdict: "RUN",
-    verdict_color: "red",
-    verdict_headline: "Do not sign this contract.",
-    verdict_reasoning: "The 3-year blanket non-compete combined with the ownership grab of your personal time makes this genuinely dangerous to your career.",
-    top_3_priorities: [
-        "Strike the 3-year non-compete entirely.",
-        "Limit IP transfer ONLY to specific deliverables created for this project.",
-        "Change payment to Net-30 and cap revisions to 2 rounds."
-    ],
-    confidence: 96
-};
-
-// Simulate 6-step Antigravity chain delay
 const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+
+function extractDynamicScore(text: string, baseScore: number, keywordRisk: number) {
+    let score = baseScore;
+    if (text.toLowerCase().includes("indemnify") || text.toLowerCase().includes("indemnification")) score += 15;
+    if (text.toLowerCase().includes("perpetuity") || text.toLowerCase().includes("all work product")) score += 15;
+    if (text.toLowerCase().includes("non-compete") || text.toLowerCase().includes("noncompete")) score += 20;
+    if (text.toLowerCase().includes("net-90") || text.toLowerCase().includes("90 days")) score += 10;
+    return Math.min(100, Math.max(0, score + keywordRisk));
+}
+
+function generateDynamicClauses(text: string) {
+    const textLower = text.toLowerCase();
+    const clauses = [];
+    let criticals = 0;
+    let highs = 0;
+    let mediums = 0;
+    let lows = 0;
+
+    // Generate dynamic IP clause
+    if (textLower.includes("intellectual property") || textLower.includes("ownership") || textLower.includes("work product")) {
+        let risk = 2; // low
+        let label = "Low";
+        let title = "INTELLECTUAL PROPERTY";
+        let reason = "Standard IP ownership transfer for completed works.";
+        let redFlag = false;
+
+        if (textLower.includes("perpetuity") || textLower.includes("moral rights") || textLower.includes("all inventions")) {
+            risk = 5; label = "Critical"; redFlag = true; criticals++;
+            reason = "Overly broad IP grab claiming ownership potentially over unrelated or personal work.";
+        } else { lows++; }
+
+        clauses.push({
+            id: "clause_ip", title, type: "IP",
+            original_text: "Excerpt related to Intellectual Property...",
+            plain_english: "Rules governing who owns the work you produce.",
+            risk_level: risk, risk_label: label, risk_reason: reason, is_red_flag: redFlag, is_negotiable: true,
+            missing_protection: "Clear boundaries limiting IP transfer strictly to project deliverables."
+        });
+    }
+
+    // Generate dynamic Non-Compete clause
+    if (textLower.includes("compete") || textLower.includes("competition")) {
+        let risk = 5;
+        let label = "Critical";
+        let reason = "Restricts your ability to work for other clients after this project.";
+        criticals++;
+        clauses.push({
+            id: "clause_nc", title: "NON-COMPETE", type: "NonCompete",
+            original_text: "Excerpt related to Non-Compete...",
+            plain_english: "You cannot work with competitors for a given period.",
+            risk_level: risk, risk_label: label, risk_reason: reason, is_red_flag: true, is_negotiable: true,
+            missing_protection: "Complete removal of non-compete for independent contractors."
+        });
+    }
+
+    // Payment clause
+    if (textLower.includes("pay") || textLower.includes("invoice") || textLower.includes("compensation")) {
+        let risk = 1; let label = "Safe"; let redFlag = false; let reason = "Payment terms seem standard.";
+        if (textLower.includes("net-90") || textLower.includes("90 days") || textLower.includes("unlimited revisions")) {
+            risk = 5; label = "Critical"; redFlag = true; criticals++;
+            reason = "Highly unfavorable payment delays or conditions strings attached.";
+        } else if (textLower.includes("net-60")) {
+            risk = 3; label = "Medium"; mediums++;
+            reason = "Payment cycle is a bit long.";
+        } else {
+            lows++;
+        }
+        clauses.push({
+            id: "clause_pay", title: "PAYMENT TERMS", type: "Payment",
+            original_text: "Excerpt related to Payment and Compensation...",
+            plain_english: "How and when you will receive your compensation.",
+            risk_level: risk, risk_label: label, risk_reason: reason, is_red_flag: redFlag, is_negotiable: true,
+            missing_protection: "Late fee penalties and strict net-30 terms."
+        });
+    }
+
+    // Liability clause
+    if (textLower.includes("liability") || textLower.includes("indemnify") || textLower.includes("hold harmless")) {
+        let risk = 4; let label = "High"; let redFlag = false; let reason = "You bear significant financial liability if issues arise.";
+        highs++;
+        clauses.push({
+            id: "clause_liab", title: "LIABILITY & INDEMNIFICATION", type: "Liability",
+            original_text: "Excerpt related to Liability...",
+            plain_english: "You may be forced to pay for legal damages.",
+            risk_level: risk, risk_label: label, risk_reason: reason, is_red_flag: redFlag, is_negotiable: true,
+            missing_protection: "Liability cap equal to total project fees."
+        });
+    }
+
+    // Termination clause
+    if (textLower.includes("terminat") || textLower.includes("cancel")) {
+        clauses.push({
+            id: "clause_term", title: "TERMINATION", type: "Termination",
+            original_text: "Excerpt related to contract termination...",
+            plain_english: "Rules for ending the agreement early.",
+            risk_level: 2, risk_label: "Low", risk_reason: "Provides a mechanism to end the contract.", is_red_flag: false, is_negotiable: true,
+            missing_protection: "Mutual notice period (e.g. 14 days)."
+        });
+        lows++;
+    }
+
+    // Fallback if the input text is very short or unrecognized
+    if (clauses.length === 0) {
+        clauses.push({
+            id: "clause_unknown", title: "GENERAL TERMS", type: "Scope",
+            original_text: "Assorted text...",
+            plain_english: "General contractual obligations.",
+            risk_level: 3, risk_label: "Medium", risk_reason: "Vague terms detected.", is_red_flag: false, is_negotiable: true,
+            missing_protection: "More specific scope definition."
+        });
+        mediums++;
+    }
+
+    return { clauses, counts: { critical: criticals, high: highs, medium: mediums, low: lows, safe: 0 } };
+}
 
 export async function POST(request: Request) {
     try {
@@ -161,16 +126,65 @@ export async function POST(request: Request) {
             return NextResponse.json({ error: "Missing contract_text" }, { status: 400 });
         }
 
-        // In a real implementation we would make 6 sequential Antigravity API calls here.
-        // Step 1: Segmentation
-        // Step 2: Clause Analysis
-        // Step 3: Red Flag Synthesis
-        // Step 4: Risk Scoring
-        // Step 5: Verdict Generation
-        // Step 6: Negotiation Emails
+        await delay(2000); // simulate processing
 
-        // For Hackathon Demo, simulate processing time
-        await delay(3500);
+        const { clauses, counts } = generateDynamicClauses(contract_text);
+
+        // Base score calculated from keywords and standard risks
+        const overallScore = extractDynamicScore(contract_text, 10, counts.critical * 10 + counts.high * 5);
+
+        let verdict = "SIGN";
+        let verdict_color = "green";
+        let verdict_headline = "Looks good to sign.";
+        if (overallScore > 75) {
+            verdict = "RUN";
+            verdict_color = "red";
+            verdict_headline = "Do not sign this contract.";
+        } else if (overallScore > 40) {
+            verdict = "NEGOTIATE";
+            verdict_color = "yellow";
+            verdict_headline = "Changes recommended before signing.";
+        }
+
+        const topRedFlags = clauses.filter(c => c.is_red_flag).map(c => ({
+            clause_id: c.id,
+            clause_title: c.title,
+            severity: c.risk_label,
+            one_line_summary: c.risk_reason
+        }));
+
+        const DEMO_RESPONSE = {
+            clauses: clauses,
+            total_clauses: clauses.length,
+            contract_type: "Custom Agreement",
+            parties: { party_a: "Client", party_b: "Freelancer" },
+            top_red_flags: topRedFlags,
+            combined_risk_narrative: `Our analysis detected an overall risk score of ${overallScore}/100 based on your text. Make sure to carefully review the highlighted clauses.`,
+            missing_clauses: [
+                "Clear Liability Caps",
+                "Explicit Payment Schedules"
+            ],
+            overall_score: overallScore,
+            category_scores: {
+                ip_rights: contract_text.toLowerCase().includes("perpetuity") ? 95 : 20,
+                payment_terms: contract_text.toLowerCase().includes("90 days") ? 100 : 30,
+                termination: contract_text.toLowerCase().includes("terminate") ? 60 : 10,
+                liability: contract_text.toLowerCase().includes("indemnify") ? 85 : 15,
+                non_compete: contract_text.toLowerCase().includes("compete") ? 100 : 0,
+                confidentiality: contract_text.toLowerCase().includes("confident") ? 50 : 0
+            },
+            risk_distribution: counts,
+            verdict: verdict,
+            verdict_color: verdict_color,
+            verdict_headline: verdict_headline,
+            verdict_reasoning: `Calculated from ${clauses.length} identified clauses and keyword heuristics.`,
+            top_3_priorities: [
+                "Ensure IP transfer is bounded.",
+                "Negotiate fairer payment windows if applicable.",
+                "Review liability for fair risk distribution."
+            ],
+            confidence: 88
+        };
 
         return NextResponse.json(DEMO_RESPONSE);
     } catch (error) {

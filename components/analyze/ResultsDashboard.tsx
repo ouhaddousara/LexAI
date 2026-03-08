@@ -34,15 +34,15 @@ export function ResultsDashboard({ data, onReset }: Props) {
                     />
 
                     {data.top_red_flags?.length > 0 && (
-                        <div className="bg-critical/5 border border-critical/20 rounded-xl p-6 flex flex-col gap-4">
-                            <h3 className="text-xl font-bold flex items-center gap-2 text-critical">
+                        <div className="flex flex-col gap-4 mt-2">
+                            <h3 className="text-xl font-bold flex items-center gap-2 text-critical mb-2">
                                 <AlertTriangle className="w-6 h-6" /> Top Red Flags
                             </h3>
                             <div className="flex flex-col gap-3">
                                 {data.top_red_flags.map((rf: RedFlag, i: number) => (
-                                    <div key={i} className="flex flex-col gap-1 p-3 bg-card border border-border rounded-lg">
-                                        <span className="text-xs font-bold text-gray-400 uppercase">{rf.clause_title}</span>
-                                        <span className="text-sm font-medium">{rf.one_line_summary}</span>
+                                    <div key={i} className="flex flex-col gap-2 p-4 bg-[#0A0A0A] border border-white/5 rounded-xl">
+                                        <span className="text-xs font-bold text-gray-400 uppercase tracking-widest">{data.top_red_flags.length - i}. {rf.clause_title}</span>
+                                        <span className="text-sm font-medium text-gray-200">{rf.one_line_summary}</span>
                                     </div>
                                 ))}
                             </div>
@@ -61,16 +61,16 @@ export function ResultsDashboard({ data, onReset }: Props) {
 
                 {/* Sidebar (Right in desktop) */}
                 <div className="flex flex-col gap-6 w-full lg:sticky lg:top-24">
-                    <div className="bg-card border border-border rounded-xl p-6 shadow-sm">
-                        <h3 className="text-lg font-bold mb-6 text-center">Overall Risk</h3>
+                    <div className="bg-[#0A0A0A] border border-white/5 rounded-[24px] p-8">
+                        <h3 className="text-lg font-bold mb-6 text-center text-white">Overall Risk</h3>
                         <RiskScoreGauge score={data.overall_score} />
                         <div className="mt-8">
                             <CategoryBreakdown scores={data.category_scores} />
                         </div>
                     </div>
 
-                    <div className="bg-card border border-border rounded-xl p-6 shadow-sm">
-                        <h3 className="text-lg font-bold mb-4">Contract Details</h3>
+                    <div className="bg-[#0A0A0A] border border-white/5 rounded-[24px] p-8">
+                        <h3 className="text-lg font-bold mb-4 text-white">Contract Details</h3>
                         <div className="flex flex-col gap-3 text-sm">
                             <div className="flex justify-between">
                                 <span className="text-gray-500">Type</span>

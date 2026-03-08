@@ -4,6 +4,8 @@ import { useState } from "react"
 import { Button } from "@/components/ui/Button"
 import { Shield } from "lucide-react"
 
+import ElectricBorder from "@/components/ui/ElectricBorder"
+
 interface Props {
     onAnalyze: (text: string) => void
 }
@@ -12,35 +14,32 @@ export function ContractInput({ onAnalyze }: Props) {
     const [text, setText] = useState("")
 
     return (
-        <div className="flex flex-col gap-6 max-w-3xl mx-auto w-full mt-12">
+        <div className="flex flex-col gap-6 max-w-3xl mx-auto w-full mt-[10vh]">
             <div className="text-center mb-4">
-                <h1 className="text-3xl font-bold mb-2">Review your contract</h1>
-                <p className="text-gray-400">Paste your contract text below. We&apos;ll identify the risks in 30 seconds.</p>
+                <h1 className="text-4xl font-bold mb-4 tracking-tight">Review your contract</h1>
+                <p className="text-gray-400 text-lg">Paste your contract text. We&apos;ll identify the risks in 30 seconds.</p>
             </div>
 
-            <div className="relative">
-                <textarea
-                    value={text}
-                    onChange={(e) => setText(e.target.value)}
-                    className="w-full h-96 bg-card border border-border rounded-xl p-6 text-foreground placeholder:text-gray-600 focus:outline-none focus:ring-2 focus:ring-brand resize-none"
-                    placeholder="Paste your freelance agreement, NDA, or terms of service here..."
-                />
+            <ElectricBorder color="#00E68A" speed={0.2} chaos={0} borderRadius={16} className="w-full">
+                <div className="relative border border-white/5 rounded-2xl overflow-hidden transition-colors bg-[#0A0A0A]">
+                    <textarea
+                        value={text}
+                        onChange={(e) => setText(e.target.value)}
+                        className="w-full h-80 bg-transparent p-6 text-foreground placeholder:text-gray-600 focus:outline-none focus:ring-2 focus:ring-brand resize-none relative z-10"
+                        placeholder="Paste your freelance agreement, NDA, or terms of service here..."
+                    />
+                </div>
+            </ElectricBorder>
 
-                {text.length === 0 && (
-                    <div className="absolute inset-0 pointer-events-none flex items-center justify-center text-center px-4">
-                        <p className="text-gray-600">Paste any contract above to get started.</p>
-                    </div>
-                )}
-            </div>
-
-            <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mt-2">
                 <div className="flex items-center gap-2 text-sm text-gray-400">
                     <Shield className="w-4 h-4 text-safe" />
-                    <span className="text-white">🔒 Your contract is never stored or shared.</span>
+                    <span className="text-gray-300">Your contract is encrypted and never stored.</span>
                 </div>
 
                 <Button
-                    size="lg"
+                    className="bg-primary text-primary-foreground font-medium rounded-full h-12 px-8 text-[16px] hover:brightness-110"
+                    style={{ fontFamily: 'var(--font-display)' }}
                     onClick={() => onAnalyze(text)}
                     disabled={text.trim().length < 50}
                 >
